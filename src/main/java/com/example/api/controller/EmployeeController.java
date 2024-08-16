@@ -3,8 +3,7 @@ package com.example.api.controller;
 import com.example.api.model.Employee;
 import com.example.api.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class EmployeeController {
@@ -15,5 +14,10 @@ public class EmployeeController {
     @GetMapping("/employees")
     public Iterable<Employee> getEmployees() {
         return employeeService.getEmployees();
+    }
+
+    @PostMapping("/employees")
+    public Employee addEmployee(@RequestBody Employee employee) {
+        return employeeService.saveEmployee(employee);
     }
 }

@@ -1,7 +1,10 @@
 package com.example.api.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.Date;
 
 @Data
 @Entity
@@ -20,4 +23,8 @@ public class Employee {
     private String mail;
 
     private String password;
+
+    @Column(name = "birth_date")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private Date birthDate;
 }
