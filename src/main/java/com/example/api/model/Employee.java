@@ -27,4 +27,8 @@ public class Employee {
     @Column(name = "birth_date")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date birthDate;
+
+    @ManyToOne
+    @JoinColumn(name = "department_id")
+    private Department department;
 }
